@@ -1,0 +1,20 @@
+service:
+  app_mode: debug
+  http_port: 9999
+mysql:
+  db: mysql
+  # mysql ip地址
+  db_host: localhost
+  # mysql 端口号
+  db_port: 3305
+  # mysql 用户名
+  db_user: root
+  # mysql 密码
+  db_pass_word: 059219
+  # mysql 名字
+  db_name: go_web
+  #学号正则
+  regular: "20220308[\\d]{2}"
+#prod
+
+#  sudo ./minio server --address '127.0.0.1:9002' --console-address '127.0.0.1:9001' /data

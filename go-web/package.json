@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "axios": "^1.4.0"
+  },
+  "dependencies": {
+    "element-ui": "^2.15.13",
+    "jsonp": "^0.2.1",
+    "vue-lazyload": "^3.0.0"
+  }
+}

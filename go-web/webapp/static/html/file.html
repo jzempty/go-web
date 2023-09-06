@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="webapp/css/login.css" rel="stylesheet">
+</head>
+<body>
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <div>
+    请选择需要上传的课程名
+    <td>
+        <input type="radio" name="coursename" value="数据库"/>数据库
+        <input type="radio" name="coursename" value="数据结构"/>数据结构
+    </td>
+    </div>
+    <div>
+    选择要上传的实验名
+    <td>
+        <input type="radio" name="exp" value="实验一"/>实验一
+        <input type="radio" name="exp" value="实验二"/>实验二
+    </td>
+    </div>
+    <div>
+    请选择上传文件：
+    <input type="file" name="file"><br>
+    <input type="submit" value="上传">
+    </div>
+</form>
+
+</body>
+</html>

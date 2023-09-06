@@ -1,0 +1,48 @@
+
+<div id="main" style="width: 1000px;height:800px;"></div>
+<script type="text/javascript">
+
+    //echart图表
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+
+    // 指定图表的配置项和数据
+    var option1 = {
+        xAxis: {
+            type: 'category',
+            data:[]
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [{
+            data: [],
+            type: 'line'
+        }]
+    };
+    //ajax获取数据并填入
+    $.ajax({
+        type:'post',
+        url:'http://127.0.0.1/echart/public/admin/index/getData',
+        data:{},
+        dataType:'json',
+        async:'false',
+        success:function (result) {         //result为接收过来的json
+            // console.log(result);
+            if (result) {
+                var myArray = eval(result); //声明变量，用于遍历
+                var xdata = [];//用于接收遍历之后的date值
+                var sdata = [];
+                for (var i = 0; i < myArray.length; i++) {
+                    xdata.push(myArray[i].date);
+                    sdata.push(myArray[i].price);
+                }
+                //把两个数组分别赋值给上面echart里的两个data
+                option1.xAxis.data = xdata;
+                option1.series[0].data = sdata;
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option1);  //echart的这条一定要写到ajax里面，不然异步调用的时候就跳过ajax直接继续运行了，等ajax返回值的时候前端页面已经完成了渲染。
+            }
+        }
+    })
+</script>
